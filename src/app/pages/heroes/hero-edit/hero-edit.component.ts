@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Hero } from '../shared/hero.model';
 
 @Component({
   selector: 'app-hero-edit',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero-edit.component.css']
 })
 export class HeroEditComponent implements OnInit {
-
+  @Input() hero?: Hero;
   constructor() { }
 
   ngOnInit(): void {

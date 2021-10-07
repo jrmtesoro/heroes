@@ -1,4 +1,7 @@
 <h2>My Heroes</h2>
-<ul *ngFor="let hero of heroes">
-    <il><b>ID : </b>{{ hero.id }} &nbsp; <b>Name : </b>{{ hero.name }}</il>
+<ul *ngFor="let hero of heroes" (click)="onSelect(hero)">
+  <li><b>ID : </b>{{ hero.id }} &nbsp; <b>Name : </b>{{ hero.name }}</li>
 </ul>
+
+<app-hero-edit [hero]="selectedHero"></app-hero-edit>
+
