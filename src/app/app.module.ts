@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HeroListComponent } from './pages/heroes/hero-list/hero-list.component';
 import { HeroEditComponent } from './pages/heroes/hero-edit/hero-edit.component';
 import { HeroAuditLogComponent } from './pages/heroes/hero-audit-log/hero-audit-log.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeroAuditLogComponent } from './pages/heroes/hero-audit-log/hero-audit-
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
