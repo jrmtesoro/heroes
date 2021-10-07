@@ -7,13 +7,15 @@ import { HeroListComponent } from './pages/heroes/hero-list/hero-list.component'
 import { HeroEditComponent } from './pages/heroes/hero-edit/hero-edit.component';
 import { HeroAuditLogComponent } from './pages/heroes/hero-audit-log/hero-audit-log.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './pages/heroes/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroListComponent,
     HeroEditComponent,
-    HeroAuditLogComponent
+    HeroAuditLogComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
