@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuditLogService } from '../../../core/audit-log.service';
+
 @Component({
   selector: 'app-hero-audit-log',
   templateUrl: './hero-audit-log.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroAuditLogComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auditLogService: AuditLogService) { }
 
   ngOnInit(): void {
   }
