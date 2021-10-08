@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Hero } from '../shared/hero.model';
-import { HeroService } from '../../../core/hero.service';
+import { HeroService } from 'src/app/core/hero.service';
 
-import { MatDialog } from '@angular/material/dialog';
 import { HeroCreateComponent } from '../hero-create/hero-create.component';
 
 @Component({
