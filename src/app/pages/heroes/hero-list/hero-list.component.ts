@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Hero } from '../shared/hero.model';
-import { HeroService } from 'src/app/core/hero.service';
+import { HeroService } from '../../../core/hero.service';
 
 @Component({
   selector: 'app-hero-list',
@@ -9,21 +10,23 @@ import { HeroService } from 'src/app/core/hero.service';
   styleUrls: ['./hero-list.component.css'],
 })
 export class HeroListComponent implements OnInit {
-  heroes: Hero[] = [];
-  selectedHero?: Hero;
+  dataSource: Hero[] = [];
+  tableTitle: string = 'My Heroes';
+  displayedColumns: string[] = ['id', 'name'];
 
-  constructor(private heroService: HeroService) {}
+  constructor(private heroService: HeroService, private router: Router) {}
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
+    this.heroService
+      .getHeroes()
+      .subscribe((heroes) => (this.dataSource = heroes));
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  editHero(hero: Hero): void {
+    this.router.navigate([`edit/${hero.id}`]);
   }
 }

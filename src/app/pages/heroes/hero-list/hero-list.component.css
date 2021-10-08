@@ -1,0 +1,15 @@
+.mat-column-id {
+  width: 90px;
+}
+
+.mat-column-name {
+  width: 230px;
+}
+
+.mat-row {
+  cursor: pointer;
+}
+
+tr.mat-row:hover {
+  background: rgba(237, 233, 232);
+}

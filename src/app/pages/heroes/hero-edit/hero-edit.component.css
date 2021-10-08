@@ -1,0 +1,14 @@
+.edit-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mat-card-footer {
+    padding: 10px;
+    justify-content: space-around;
+    display: flex;
+}

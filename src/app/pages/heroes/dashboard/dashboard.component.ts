@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../shared/hero.model';
-import { HeroService } from '../../../core/hero.service';
+import { HeroService } from 'src/app/core/hero.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,11 @@ import { HeroService } from '../../../core/hero.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  tableTitle: string = 'Top Heroes'
+  dataSource: Hero[] = [];
+  displayedColumns: string[] = [
+    'name'
+  ];
 
   constructor(private heroService: HeroService) { }
 
@@ -18,7 +22,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService.getHeroes().subscribe(heroes => this.dataSource = heroes.slice(1, 5));
   }
 
 }
