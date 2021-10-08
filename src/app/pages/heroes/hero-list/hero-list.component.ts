@@ -46,6 +46,7 @@ export class HeroListComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter((h) => h !== hero);
     this.heroService.deleteHero(hero.id).subscribe();
+    this.dataSource = new MatTableDataSource(this.heroes);
   }
 
   openDialog() {

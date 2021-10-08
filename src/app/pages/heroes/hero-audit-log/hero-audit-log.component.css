@@ -1,0 +1,13 @@
+.footer-container {
+  display: flex;
+}
+
+.footer-container > div:nth-child(2) {
+  margin-left: auto;
+}
+
+.log-container {
+  height: 50px;
+  overflow: scroll;
+  overflow-x: hidden;
+}

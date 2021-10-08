@@ -22,6 +22,7 @@ import { HeroAuditLogComponent } from './pages/heroes/hero-audit-log/hero-audit-
 import { DashboardComponent } from './pages/heroes/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroCreateComponent } from './pages/heroes/hero-create/hero-create.component';
+import { HeroSearchComponent } from './pages/heroes/hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeroCreateComponent } from './pages/heroes/hero-create/hero-create.comp
     HeroEditComponent,
     HeroAuditLogComponent,
     DashboardComponent,
-    HeroCreateComponent
+    HeroCreateComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
