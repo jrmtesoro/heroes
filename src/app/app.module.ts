@@ -8,6 +8,14 @@ import { HeroEditComponent } from './pages/heroes/hero-edit/hero-edit.component'
 import { HeroAuditLogComponent } from './pages/heroes/hero-audit-log/hero-audit-log.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './pages/heroes/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -20,7 +28,15 @@ import { DashboardComponent } from './pages/heroes/dashboard/dashboard.component
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatGridListModule,
+    MatCardModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

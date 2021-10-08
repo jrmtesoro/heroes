@@ -6,10 +6,10 @@ import { DashboardComponent } from './pages/heroes/dashboard/dashboard.component
 import { HeroEditComponent } from './pages/heroes/hero-edit/hero-edit.component';
 
 const routes: Routes = [
-  { path: 'heroes', component: HeroListComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'edit/:id', component: HeroEditComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'herolist', component: HeroListComponent }
 ];
 
 @NgModule({
