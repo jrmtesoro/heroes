@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { Hero } from '../shared/hero.model';
 import { HeroService } from '../../../core/hero.service';
+
+import { MatDialog } from '@angular/material/dialog';
+import { HeroCreateComponent } from '../hero-create/hero-create.component';
 
 @Component({
   selector: 'app-hero-list',
@@ -10,23 +13,47 @@ import { HeroService } from '../../../core/hero.service';
   styleUrls: ['./hero-list.component.css'],
 })
 export class HeroListComponent implements OnInit {
-  dataSource: Hero[] = [];
+  heroes: Hero[] = [];
+  dataSource = new MatTableDataSource<Hero>();
   tableTitle: string = 'My Heroes';
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['id', 'name', 'actions'];
+  creating: boolean = false;
 
-  constructor(private heroService: HeroService, private router: Router) {}
+  constructor(private heroService: HeroService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.index();
   }
 
-  getHeroes(): void {
-    this.heroService
-      .getHeroes()
-      .subscribe((heroes) => (this.dataSource = heroes));
+  index(): void {
+    this.heroService.getHeroes().subscribe((heroes) => {
+      this.heroes = heroes;
+      this.dataSource = new MatTableDataSource(heroes);
+    });
   }
 
-  editHero(hero: Hero): void {
-    this.router.navigate([`edit/${hero.id}`]);
+  store(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      this.heroes.push(hero);
+      this.dataSource = new MatTableDataSource(this.heroes);
+    });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter((h) => h !== hero);
+    this.heroService.deleteHero(hero.id).subscribe();
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(HeroCreateComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.store(result);
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

@@ -13,3 +13,11 @@
 tr.mat-row:hover {
   background: rgba(237, 233, 232);
 }
+
+.table-header {
+  display: flex;
+}
+
+.table-header > div:nth-child(2) {
+  margin-left: auto;
+}

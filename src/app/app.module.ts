@@ -11,6 +11,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { InMemoryDataService } from './core/in-memory-data.service';
@@ -19,6 +21,7 @@ import { HeroEditComponent } from './pages/heroes/hero-edit/hero-edit.component'
 import { HeroAuditLogComponent } from './pages/heroes/hero-audit-log/hero-audit-log.component';
 import { DashboardComponent } from './pages/heroes/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeroCreateComponent } from './pages/heroes/hero-create/hero-create.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     HeroListComponent,
     HeroEditComponent,
     HeroAuditLogComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
+    MatIconModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
