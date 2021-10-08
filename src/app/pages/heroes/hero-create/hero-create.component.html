@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Create your Hero</h1>
+<mat-dialog-content>
+  <mat-form-field appearance="legacy">
+    <mat-label>Hero Name</mat-label>
+    <input matInput #heroName placeholder="Enter a hero name">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="heroName.value" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
